@@ -1,0 +1,26 @@
+﻿@model ExcellImportData.Models.DTO.ImportData
+
+@{
+    ViewData["Title"] = "Import";
+}
+
+<h1>Import</h1>
+
+<hr />
+
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@Model.File" class="form-label"></label>
+        <input type="file" asp-for="@Model.File" class="form-control"/>
+        <span asp-validation-for="@Model.File" class="text-danger"></span>
+        <input type="submit" value="Process" class="btn btn-primary mt-2" />
+    </div>
+</form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
